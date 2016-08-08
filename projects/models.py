@@ -1,3 +1,4 @@
+import django_filters
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.text import slugify
@@ -23,3 +24,10 @@ class Project(models.Model):
 
     def __str__(self):
             return self.name
+
+class ProjectFilter(django_filters.FilterSet):
+    name = django_filters.CharFilter(lookup_expr='iexact')
+    class Meta:
+        model = Project
+        fields = ['name', 'description', 'expiration_date', 'number_of_users_required', ]
+

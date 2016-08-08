@@ -17,6 +17,12 @@ urlpatterns = [
     ),
 
     url(
+        regex=r'^filter/$',
+        view=views.project_filter,
+        name='filter'
+    ),
+
+    url(
         regex=r'^(?P<slug>[-\w]+)/$',
         view=views.ProjectDetailView.as_view(),
         name='detail'
@@ -33,4 +39,9 @@ urlpatterns = [
         view=views.ProjectDeleteView.as_view(),
         name='delete'
     ),
+
+    
+    
 ]
+
+

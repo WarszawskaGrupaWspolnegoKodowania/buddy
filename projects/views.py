@@ -7,8 +7,9 @@ from django.views.generic import (
     )
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
-from .models import Project
+from .models import Project, ProjectFilter
 from users.models import Skill
 from .forms import ProjectForm, SkillFormSet
 
@@ -101,3 +102,16 @@ class ProjectUpdateView(UpdateView):
 class ProjectDeleteView(DeleteView):
     model = Project
     success_url = reverse_lazy('projects:list')
+
+
+def project_filter(request):
+    print ('im in views')
+    f = ProjectFilter(request.GET, queryset=Project.objects.all())
+    return render(request, 'projects/project_list.html', {'filter': f})
+
+# def project_search(request):
+#     import pdb; pdb.set_trace;
+#     if request.method == 'GET':
+#         search_query = request.GET.get('search_box')
+#         results = Project.objects.filter(name__icontains=search_query)
+#         return render(request, template_name='projects/project_list.html', context={'object_list': results})

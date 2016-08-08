@@ -8,6 +8,21 @@
 
     <h2>Projects</h2>
 
+    <form action="" method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+    </form>
+    {% for obj in filter %}
+        {{ obj }}<br />
+    {% endfor %}
+
+    
+    <!-- <form method="get" action="search/">
+        <input  id="search_box" type="text" name="search_box"  placeholder="Search..." >
+        <button id="search_submit" type="submit" >Search</button>
+    </form> -->
+
+
     <div class="list-group">
         {% for project in object_list %}
             <a href ="{% url 'projects:detail' project.slug %}" class="list-group-item" >
