@@ -105,9 +105,8 @@ class ProjectDeleteView(DeleteView):
 
 
 def project_filter(request):
-    print ('im in views')
     f = ProjectFilter(request.GET, queryset=Project.objects.all())
-    return render(request, 'projects/project_list.html', {'filter': f})
+    return render(request, 'projects/project_list.html', {'object_list': f})
 
 # def project_search(request):
 #     import pdb; pdb.set_trace;
