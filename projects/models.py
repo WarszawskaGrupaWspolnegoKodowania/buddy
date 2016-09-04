@@ -28,7 +28,9 @@ class Project(models.Model):
 class ProjectFilter(django_filters.FilterSet):
     name = django_filters.CharFilter(lookup_expr='icontains', help_text='')
     description = django_filters.CharFilter(lookup_expr='icontains', help_text='')
+    skills = django_filters.ModelMultipleChoiceFilter(queryset=Skill.objects, help_text='')
+
     class Meta:
         model = Project
-        fields = ['name', 'description', ]
+        fields = ['name', 'description', 'skills']
 
