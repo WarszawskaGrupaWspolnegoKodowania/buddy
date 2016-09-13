@@ -24,6 +24,7 @@ THIRD_PARTY_APPS = (
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.github',
+    'pinax.notifications'
 )
 
 BUDDY_APPS = (

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 
-from django.conf.urls import url
+from django.conf.urls import url, include
 
 from . import views
 
@@ -11,4 +11,5 @@ urlpatterns = [
     url(regex=r'^(?P<username>[\w.@+-]+)/$', view=views.UserDetailView.as_view(), name='detail'),
     url(regex=r'^~update/$', view=views.UserUpdateView.as_view(), name='update'),
     url(regex=r'^~delete/$', view=views.UserDeleteView.as_view(), name='delete'),
+    url(r"^notifications/", include("pinax.notifications.urls"))
 ]
