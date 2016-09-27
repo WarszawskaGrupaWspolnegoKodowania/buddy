@@ -9,7 +9,8 @@ from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from .models import Project, ProjectFilter
+from .models import Project
+from .filters import ProjectFilter
 from users.models import Skill
 from .forms import ProjectForm, SkillFormSet
 
